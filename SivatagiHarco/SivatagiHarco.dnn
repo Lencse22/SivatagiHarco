@@ -52,7 +52,7 @@
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers/Item/Index.mvc</controlSrc>
+                    <controlSrc>RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers/HelloWorld/Index.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>

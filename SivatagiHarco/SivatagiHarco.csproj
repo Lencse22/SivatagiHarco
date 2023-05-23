@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Components\ItemManager.cs" />
+    <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -144,7 +145,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\HelloWorld\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
