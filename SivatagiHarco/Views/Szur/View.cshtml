@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<h2>Keresés</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+    {
+    <p>
+        Név: @Html.TextBox("Név")
+        Nem: @Html.DropDownList("Nem", "All")
+        Kategória: @Html.DropDownList("Kategória", "All")
+        Terméktípús: @Html.DropDownList("Terméktípús", "All")
+        <input type="submit" value="Szűrés" />
+    </p>
+}
+    </p>
+    <table class="table">
