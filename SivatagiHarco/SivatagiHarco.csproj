@@ -145,9 +145,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\HelloWorld\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -155,7 +153,7 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\Edit.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
-    <Content Include="Views\HelloWord\index.cshtml" />
+    <Content Include="Views\HelloWorld\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
