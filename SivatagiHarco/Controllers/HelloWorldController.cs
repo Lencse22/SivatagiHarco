@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetNuke.Web.Mvc.Framework.ActionFilters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,8 @@ namespace RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers
     public class HelloWorldController : Controller
     {
         // GET: HelloWorld
+        [DnnHandleError]
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
