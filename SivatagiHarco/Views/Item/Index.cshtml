@@ -1,33 +1,62 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable< RFProjekt.Dnn.KeresoModulSivatagiHarco.Models.Item >>
-
+﻿
 @using System.Text.RegularExpressions
 @using DotNetNuke.Web.Mvc.Helpers
 
-
-<div id="Items-@Dnn.ModuleContext.ModuleId">
-    @if (Model.Count() == 0)
-    {
-        <p>@Dnn.LocalizeString("NoItems")</p>
+<script>
+    var mentettek = [];
+    function Mentés() {
+        let név = document.getElementById("név").value;
+        let Nem = document.getElementById("Nem").value;
+        let Terméktípus = document.getElementById("Terméktípus").value;
+        const mentett = [];
+        mentett[0] = név;
+        mentett[1] = Nem;
+        mentett[2] = Terméktípus;
+        var x = document.getElementById("Mentett");
+        var option = document.createElement("option");
+        mentettek = mentettek.concat(mentett);
+        option.text = mentett.toString();
+        x.add(option);
     }
-    else
-    {
-        <ul class="tm_tl">
-            @foreach (var item in Model)
-            {
-                <li class="tm_t">
-                    <h3>@item.ItemName</h3>
-                    <div class="tm_td">@item.ItemDescription</div>
-                    @{
-                        if (Dnn.ModuleContext.IsEditable)
-                        {
-                            <div>
-                                <a href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item.ItemId})">@Dnn.LocalizeString("EditItem")</a>
-                                <a href="@Url.Action("Delete", "Item", new {itemId = item.ItemId})">@Dnn.LocalizeString("DeleteItem")</a>
-                            </div>
-                        }
-                    }
-                </li>
-            }
-        </ul>
+    function Betöltés() {
+        if (document.getElementById("Mentett").value != "Mentett") {
+            document.getElementById("név").value = mentettek[(document.getElementById("Mentett").selectedIndex-1)*3];
+            document.getElementById("Nem").value = mentettek[(document.getElementById("Mentett").selectedIndex)*3-2];
+            document.getElementById("Terméktípus").value = mentettek[(document.getElementById("Mentett").selectedIndex)*3-1];
+        }
     }
-</div>
+</script>
+<h3>Keresés</h3>
+<table>
+    <tr>
+        <td>
+            <input class="form-control" type="text" id="név" name="fname" value="Név">
+        </td>
+        <td>
+            <select class="form-control" id="Nem" name="Nem">
+                <option>Nem</option>
+                <option>Férfi</option>
+                <option>Női</option>
+            </select>
+        </td>
+        <td>
+            <select class="form-control" id="Terméktípus" name="Terméktípus">
+                <option>Terméktípus</option>
+                <option>Csomag</option>
+                <option>Kedvezményes</option>
+                <option>Parfüm</option>
+            </select>
+        </td>
+        <td>
+            <input type="submit" value="Szűrés" />
+        </td>
+        <td>
+            <input type="button" value="Mentés" onclick="Mentés()"/>
+        </td>
+        <td>
+            <select class="form-control" id="Mentett" name="Terméktípus" onchange="Betöltés()">
+                <option>Mentett</option>
+            </select>
+        </td>
+    </tr>
+</table>

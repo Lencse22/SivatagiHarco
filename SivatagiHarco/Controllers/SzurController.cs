@@ -13,17 +13,19 @@ namespace RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers
         {
             var NemLst = new List<string>();
 
-            var NemQry = from d in db.Movies
+            var NemQry = from d in 
                            orderby d.Genre
                            select d.Genre;
+
             var KatLst = new List<string>();
 
-            var KatQry = from d in db.Movies
+            var KatQry = from d in 
                          orderby d.Genre
                          select d.Genre;
+
             var TerLst = new List<string>();
 
-            var TerQry = from d in db.Movies
+            var TerQry = from d in 
                          orderby d.Genre
                          select d.Genre;
 
@@ -38,7 +40,7 @@ namespace RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers
 
 
 
-            var movies = from m in db.Movies
+            var movies = from m in 
                          select m;
 
             if (!String.IsNullOrEmpty(Név))
@@ -46,9 +48,9 @@ namespace RFProjekt.Dnn.KeresoModulSivatagiHarco.Controllers
                 movies = movies.Where(s => s.Név.Contains(Név));
             }
 
-            if (!string.IsNullOrEmpty(TermékTípús))
+            if (!string.IsNullOrEmpty(Terméktípús))
             {
-                movies = movies.Where(x => x.Genre == TermékTípús);
+                movies = movies.Where(x => x.Genre == Terméktípús);
             }
 
             if (!string.IsNullOrEmpty(Kategória))
